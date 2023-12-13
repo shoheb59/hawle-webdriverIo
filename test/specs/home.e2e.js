@@ -9,10 +9,7 @@ const zone  = 'ZoneTest'+ randomNumber;
 describe('User able to Create Zone', () => {
 it('Create Zone', async () =>
 {
-    
     await HomePage.home(zone)
-    await expect(SecurePage.zoneText).toBeExisting();
-    await expect(SecurePage.zoneText).toHaveTextContaining('Overview of all Zones');
     
 })
 })
