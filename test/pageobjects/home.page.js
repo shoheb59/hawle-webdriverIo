@@ -1,7 +1,7 @@
 const { $ } = require('@wdio/globals')
 const Page = require('./page');
 
-
+//New-demo-commit
 class HomePage extends Page
 {
     get btnzone ()
