@@ -1,0 +1,4 @@
+{
+  "using": "xpath",
+  "value": "//button[contains(@class, \"mat-icon-button\") and .//mat-icon[contains(text(), \"add\")]]"
+}

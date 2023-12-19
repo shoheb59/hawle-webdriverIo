@@ -1,0 +1,4 @@
+{
+  "using": "xpath",
+  "value": "//mat-icon[contains(text(),  'add')]"
+}

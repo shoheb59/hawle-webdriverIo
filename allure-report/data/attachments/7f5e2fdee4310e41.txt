@@ -1,0 +1,3 @@
+{
+  "text": "ntypecustomer@yopmail.com"
+}
