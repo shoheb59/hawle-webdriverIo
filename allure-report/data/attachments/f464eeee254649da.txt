@@ -1,0 +1,5 @@
+{
+  "error": "no such element",
+  "message": "no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"(//mat-icon[contains(text(), 'delete')])[2]\"}\n  (Session info: chrome=120.0.6099.71)",
+  "stacktrace": "\tGetHandleVerifier [0x00007FF79A734D02+56194]\n\t(No symbol) [0x00007FF79A6A04B2]\n\t(No symbol) [0x00007FF79A5476AA]\n\t(No symbol) [0x00007FF79A5916D0]\n\t(No symbol) [0x00007FF79A5917EC]\n\t(No symbol) [0x00007FF79A5D4D77]\n\t(No symbol) [0x00007FF79A5B5EBF]\n\t(No symbol) [0x00007FF79A5D2786]\n\t(No symbol) [0x00007FF79A5B5C23]\n\t(No symbol) [0x00007FF79A584A45]\n\t(No symbol) [0x00007FF79A585AD4]\n\tGetHandleVerifier [0x00007FF79AAAD5BB+3695675]\n\tGetHandleVerifier [0x00007FF79AB06197+4059159]\n\tGetHandleVerifier [0x00007FF79AAFDF63+4025827]\n\tGetHandleVerifier [0x00007FF79A7CF029+687785]\n\t(No symbol) [0x00007FF79A6AB508]\n\t(No symbol) [0x00007FF79A6A7564]\n\t(No symbol) [0x00007FF79A6A76E9]\n\t(No symbol) [0x00007FF79A698094]\n\tBaseThreadInitThunk [0x00007FF8B9127344+20]\n\tRtlUserThreadStart [0x00007FF8BA7C26B1+33]\n"
+}

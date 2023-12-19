@@ -1,3 +1,12 @@
+const process =  require ('process')
+const url =  require('./environmentURL')
+const ENV = process.env.ENV
+if(!ENV || !['dev', 'prod'].includes(ENV))
+{
+    console.log("Please input valid environment value")
+    process.exit();
+}
+
 exports.config = {
     //
     // ====================
@@ -25,9 +34,10 @@ exports.config = {
 
         [
         "./test/specs/login.e2e.js",
-        "./test/specs/home.e2e.js",
+        //"./test/specs/home.e2e.js",
+        "./test/specs/hydrant.e2e.js",
        
-    ],
+     ],
     //'./test/specs/**/*.js'
     ],
 
@@ -35,6 +45,19 @@ exports.config = {
     exclude: [
         // 'path/to/excluded/files'
     ],
+    suites : {
+        smoke: [
+            "./test/specs/login.e2e.js",
+            //"./test/specs/home.e2e.js",
+            "./test/specs/hydrant.e2e.js",
+        ],
+        upload:
+        [
+            "./test/specs/upload.e2e.js"
+
+        ]  
+    
+    },
     //
     // ============
     // Capabilities
@@ -93,7 +116,7 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://localhost',
+    baseUrl: url[process.env.ENV],//QA/PROD
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 100000,
@@ -132,13 +155,17 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec',['allure', {outputDir: 'allure-results'}]],
+    reporters: [['allure', {
+        outputDir: 'allure-results',
+        disableWebdriverStepsReporting: true,
+        disableWebdriverScreenshotsReporting: true,
+    }]],
 
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
     mochaOpts: {
         ui: 'bdd',
-        timeout: 60000
+        timeout: 100000
     },
 
     //

@@ -9,11 +9,7 @@ class SecurePage extends Page {
      * define selectors using getter methods
      */
     get flashAlert () {
-        return $("//mat-icon[contains(text(), 'home')]");
-    }
-    get zoneText()
-    {
-        return $("//span[contains(text(), ' Overview of all Zones ')]")
+        return $('#flash');
     }
 }
 

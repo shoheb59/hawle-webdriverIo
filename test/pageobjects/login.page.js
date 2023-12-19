@@ -19,7 +19,6 @@ class LoginPage extends Page {
     get btnSubmit () {
         return $('button[type="submit"]');
     }
-    
 
     /**
      * a method to encapsule automation code to interact with the page
@@ -32,7 +31,6 @@ class LoginPage extends Page {
         await this.inputPassword.setValue(password);
         await this.btnSubmit.click();
         await browser.pause(14000); 
-        
     }
 
     /**
