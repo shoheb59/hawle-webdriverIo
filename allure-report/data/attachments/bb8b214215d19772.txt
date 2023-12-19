@@ -1,5 +1,0 @@
-{
-  "error": "no such element",
-  "message": "no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//div [contains(text(), 'Zones')]\"}\n  (Session info: chrome=119.0.6045.200)",
-  "stacktrace": "\tGetHandleVerifier [0x00007FF7AD9482B2+55298]\n\t(No symbol) [0x00007FF7AD8B5E02]\n\t(No symbol) [0x00007FF7AD7705AB]\n\t(No symbol) [0x00007FF7AD7B175C]\n\t(No symbol) [0x00007FF7AD7B18DC]\n\t(No symbol) [0x00007FF7AD7ECBC7]\n\t(No symbol) [0x00007FF7AD7D20EF]\n\t(No symbol) [0x00007FF7AD7EAAA4]\n\t(No symbol) [0x00007FF7AD7D1E83]\n\t(No symbol) [0x00007FF7AD7A670A]\n\t(No symbol) [0x00007FF7AD7A7964]\n\tGetHandleVerifier [0x00007FF7ADCC0AAB+3694587]\n\tGetHandleVerifier [0x00007FF7ADD1728E+4048862]\n\tGetHandleVerifier [0x00007FF7ADD0F173+4015811]\n\tGetHandleVerifier [0x00007FF7AD9E47D6+695590]\n\t(No symbol) [0x00007FF7AD8C0CE8]\n\t(No symbol) [0x00007FF7AD8BCF34]\n\t(No symbol) [0x00007FF7AD8BD062]\n\t(No symbol) [0x00007FF7AD8AD3A3]\n\tBaseThreadInitThunk [0x00007FF9E3F97344+20]\n\tRtlUserThreadStart [0x00007FF9E50226B1+33]\n"
-}

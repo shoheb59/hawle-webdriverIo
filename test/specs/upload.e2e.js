@@ -5,11 +5,20 @@ const UploadFile = require ('../pageobjects/uploadFile.js')
 
 describe('Upload Dashboard file', () =>
 {
-    it('Upload file', async () =>
+    before('login', async () =>
     {
         await LoginPage.open()
         await LoginPage.login('ntypeuser@yopmail.com', '55995960')
+
+    })
+
+    it('Upload file', async () =>
+    {
+       
         await UploadFile.dashbaordUpload();
+        await browser.deleteSession({
+            shutdownDriver: false
+        });
 
 
     })

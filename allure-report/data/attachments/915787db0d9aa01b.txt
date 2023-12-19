@@ -1,5 +1,0 @@
-{
-  "error": "no such element",
-  "message": "no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//span[contains(text(),'Delete')]\"}\n  (Session info: chrome=120.0.6099.109)",
-  "stacktrace": "\tGetHandleVerifier [0x00007FF789CE2142+3514994]\n\t(No symbol) [0x00007FF789900CE2]\n\t(No symbol) [0x00007FF7897A76AA]\n\t(No symbol) [0x00007FF7897F1860]\n\t(No symbol) [0x00007FF7897F197C]\n\t(No symbol) [0x00007FF789834EE7]\n\t(No symbol) [0x00007FF78981602F]\n\t(No symbol) [0x00007FF7898328F6]\n\t(No symbol) [0x00007FF789815D93]\n\t(No symbol) [0x00007FF7897E4BDC]\n\t(No symbol) [0x00007FF7897E5C64]\n\tGetHandleVerifier [0x00007FF789D0E16B+3695259]\n\tGetHandleVerifier [0x00007FF789D66737+4057191]\n\tGetHandleVerifier [0x00007FF789D5E4E3+4023827]\n\tGetHandleVerifier [0x00007FF789A304F9+689705]\n\t(No symbol) [0x00007FF78990C048]\n\t(No symbol) [0x00007FF789908044]\n\t(No symbol) [0x00007FF7899081C9]\n\t(No symbol) [0x00007FF7898F88C4]\n\tBaseThreadInitThunk [0x00007FF8B9127344+20]\n\tRtlUserThreadStart [0x00007FF8BA7C26B1+33]\n"
-}
