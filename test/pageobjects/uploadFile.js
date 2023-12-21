@@ -50,30 +50,50 @@ class UploadFile extends Page
     
     async dashbaordUpload()
     {
-        await browser.pause(7000)
-        await this.btn_Dashbarodgroups.waitForClickable()
+        await browser.waitUntil(async () => {
+            // Check if the button is displayed
+            const isButtonDisplayed = await this.btn_Dashbarodgroups.isDisplayed();
+            await this.btn_Dashbarodgroups.waitForClickable()
+            const isbuttonClickable = await this.btn_Dashbarodgroups.isClickable();
+            return isButtonDisplayed  &&  isbuttonClickable /* && ... add other conditions */;
+        }, {
+            timeout: 200000, // Adjust the timeout as needed
+            timeoutMsg: 'Dashboard did not load within the expected time',
+            interval: 8000, // Polling interval
+        });
+    
         await this.btn_Dashbarodgroups.click()
-        await this.btn_all.waitForExist(
-            {
-                timeout: 12000
-            }
-        )
+       
         
-        await this.btn_all.waitForClickable()
+
+        await browser.pause(40000)
+        await browser.waitUntil(async ()=> 
+        {
+
+            const isButtonDisplayed = await this.btn_all.isDisplayed();
+            await this.btn_all.waitForClickable()
+            const isbuttonClickable = await this.btn_all.isClickable();
+            return isButtonDisplayed  &&  isbuttonClickable /* && ... add other conditions */;
+
+        })
+      
+    
         await this.btn_all.click();
 
     
-        await this.btn_Upload.waitForDisplayed(
-            {
-                timeout: 120000
-            }
-        )
-        await this.btn_Upload.waitForClickable()
-        await browser.pause(12000)
+
+        await browser.pause(7000)
+        await browser.waitUntil(async () =>
+        {
+            const isButtonDisplayed = await this.btn_Upload.isDisplayed();
+            //const isButtonDisable  = await  this.btn_Upload.isElementEnabled();
+            await this.btn_Upload.waitForClickable()
+            const isbuttonClickable = await this.btn_Upload.isClickable();
+            return isButtonDisplayed  &&  isbuttonClickable 
+        })
         await this.btn_Upload.click();
-        await browser.pause(5000);
         await this.fileUpload('D:\\webdriverIo\\testTesenso\\test\\utills\\dashboard.csv.json', await this.file_Input)
-        await browser.debug();
+       
     //     //await this.btn_browse_file.click()
         
 
@@ -97,7 +117,8 @@ class UploadFile extends Page
 
         // Click on btn_submitForImportDevice
            await this.btn_submitForImportDashb.click();
-           await browser.debug();
+           await browser.pause(60000)
+           
 
         
 

@@ -6,6 +6,14 @@ const securePage = require('../pageobjects/secure.page');
 
 describe ('Hydrant Page', () =>
 {
+
+    // before('login', async () =>
+    // {
+    //     await LoginPage.open()
+    //     await LoginPage.login('ntypeuser@yopmail.com', '55995960')
+
+    // })
+
 it('Hydrant Creation', async() => {
     
     await HydrantPage.navigateHydrantPage();

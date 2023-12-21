@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "wdio": "wdio run ./wdio.conf.js",
-    "publish": "npx allure generate --clean && npx allure serve allure-results"
+    "publish": "npx allure generate --clean && npx allure serve allure-results",
+    "upload": "npx cross-env ENV=dev wdio run wdio.conf.js --suite upload",
+    "smoke": "npx cross-env ENV=dev wdio run wdio.conf.js --suit smoke"
   },
   "keywords": [],
   "author": "",
