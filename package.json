@@ -8,7 +8,8 @@
     "wdio": "wdio run ./wdio.conf.js",
     "publish": "npx allure generate --clean && npx allure serve allure-results",
     "upload": "npx cross-env ENV=dev wdio run wdio.conf.js --suite upload",
-    "smoke": "npx cross-env ENV=dev wdio run wdio.conf.js --suit smoke"
+    "smoke": "npx cross-env ENV=dev wdio run wdio.conf.js --suite smoke",
+    "three": "npx cross-env ENV=dev wdio run wdio.conf.js --suite three"
   },
   "keywords": [],
   "author": "",

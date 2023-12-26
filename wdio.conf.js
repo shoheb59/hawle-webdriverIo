@@ -33,9 +33,14 @@ exports.config = {
     specs: [
 
         [
-        "./test/specs/login.e2e.js",
-        //"./test/specs/home.e2e.js",
-        "./test/specs/hydrant.e2e.js",
+
+            "./test/specs/login.e2e.js",
+            // "./test/specs/home.e2e.js",
+             //"./test/specs/hydrant.e2e.js",
+            // "./test/specs/dStorz.e2e.js"
+            //"./test/specs/user.e2e.js"
+            "./test/specs/alarm.e2e.js"
+       
        
      ],
     //'./test/specs/**/*.js'
@@ -45,17 +50,25 @@ exports.config = {
     exclude: [
         // 'path/to/excluded/files'
     ],
-    suites : {
+    "suites" : {
         smoke: [
             "./test/specs/login.e2e.js",
-            //"./test/specs/home.e2e.js",
+           // "./test/specs/home.e2e.js",
             "./test/specs/hydrant.e2e.js",
         ],
         upload:
         [
             "./test/specs/upload.e2e.js"
+          
 
-        ]  
+        ],
+        three:
+        [
+            "./test/specs/dStorz.e2e.js",
+            "./test/specs/user.e2e.js",
+            "./test/specs/alarm.e2e.js"
+
+        ] 
     
     },
     //
@@ -82,7 +95,7 @@ exports.config = {
     //
     capabilities: [{
         maxInstances: 1,
-        browserName: 'chrome'
+        browserName: 'firefox'
     }],
 
     //
@@ -234,12 +247,14 @@ exports.config = {
      * @param {object} suite suite details
      */
     // beforeSuite: function (suite) {
-    // },
+    
+      
+    //  },
     /**
      * Function to be executed before a test (in Mocha/Jasmine) starts.
      */
-    // beforeTest: function (test, context) {
-    // },
+     //beforeTest: function (test, context) {
+     //},
     /**
      * Hook that gets executed _before_ a hook within the suite starts (e.g. runs before calling
      * beforeEach in Mocha)

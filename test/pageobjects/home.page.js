@@ -59,7 +59,7 @@ class HomePage extends Page
             await this.btnDelete.waitUntil(() => {
                 return this.btnDelete.isExisting();
             }, {
-                timeout: 5000,
+                timeout: 15000,
                 timeoutMsg: 'Timeout waiting for delete button to exist',
                 interval: 1000,
             });

@@ -92,7 +92,8 @@ class UploadFile extends Page
             return isButtonDisplayed  &&  isbuttonClickable 
         })
         await this.btn_Upload.click();
-        await this.fileUpload('D:\\webdriverIo\\testTesenso\\test\\utills\\dashboard.csv.json', await this.file_Input)
+        //await this.fileUpload('D:\\webdriverIo\\testTesenso\\test\\utills\\dashboard.csv.json', await this.file_Input)
+        await this.file_Input.addValue(`${process.cwd()}\\test\\utills\\dashboard.csv.json`)
        
     //     //await this.btn_browse_file.click()
         
