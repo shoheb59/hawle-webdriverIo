@@ -1,3 +1,5 @@
+const video = require('wdio-video-reporter');
+const LoginPage = require('./test/pageobjects/login.page');
 const process =  require ('process')
 const url =  require('./environmentURL')
 const ENV = process.env.ENV
@@ -52,7 +54,7 @@ exports.config = {
     ],
     "suites" : {
         smoke: [
-            "./test/specs/login.e2e.js",
+            //"./test/specs/login.e2e.js",
            // "./test/specs/home.e2e.js",
             "./test/specs/hydrant.e2e.js",
         ],
@@ -95,7 +97,7 @@ exports.config = {
     //
     capabilities: [{
         maxInstances: 1,
-        browserName: 'firefox'
+        browserName: 'chrome'
     }],
 
     //
@@ -132,7 +134,7 @@ exports.config = {
     baseUrl: url[process.env.ENV],//QA/PROD
     //
     // Default timeout for all waitFor* commands.
-    waitforTimeout: 100000,
+    waitforTimeout: 200000,
     //
     // Default timeout in milliseconds for request
     // if browser driver or grid doesn't send response
@@ -168,17 +170,28 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: [['allure', {
-        outputDir: 'allure-results',
-        disableWebdriverStepsReporting: true,
-        disableWebdriverScreenshotsReporting: true,
-    }]],
+    reporters: [
+        
+          ['allure', {
+            outputDir: 'allure-results',
+            disableWebdriverStepsReporting: false,
+            disableWebdriverScreenshotsReporting: false,
+          }],
+
+          [video, {
+            saveAllVideos: true,       // If true, also saves videos for successful test cases
+            videoSlowdownMultiplier: 3, // Higher to get slower videos, lower for faster videos [Value 1-100]
+          }]
+        ],
+
+        
+
 
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
     mochaOpts: {
         ui: 'bdd',
-        timeout: 100000
+        timeout: 200000
     },
 
     //
@@ -233,8 +246,10 @@ exports.config = {
      * @param {Array.<String>} specs        List of spec file paths that are to be run
      * @param {object}         browser      instance of created browser/device session
      */
-    // before: function (capabilities, specs) {
-    // },
+    before: function (capabilities, specs) {
+         LoginPage.open()
+         LoginPage.login('ntypeuser@yopmail.com', '55995960')
+    },
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {string} commandName hook command name

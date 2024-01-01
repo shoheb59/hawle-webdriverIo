@@ -19,6 +19,10 @@ it('Hydrant Creation', async() => {
     await HydrantPage.navigateHydrantPage();
     await HydrantPage.createHydrant();
     await HydrantPage.hydrantForm();
+    await HydrantPage.hydrantFormPressureInfo();
+    await HydrantPage.hydrantFormDatePage();
+    await HydrantPage.hydrantFormLocationPage();
+    await HydrantPage.hydrantFormDStorzPage();
 
 
 })

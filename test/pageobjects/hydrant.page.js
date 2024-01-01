@@ -47,7 +47,55 @@ class HydrantPage {
   }
   get textField_stroz1()
   {
-    return $("//mat-label[contains(text(), 'Storz 1')]")
+    return $("(//*[@role='combobox'])[4]")
+  }
+  get dd_stroz1List() {
+    return $("//span[contains(text(), '55mm')]");
+  }
+
+  get textField_stroz2()
+  {
+    return $("(//*[@role='combobox'])[6]")
+  }
+
+  get dd_stroz2List() {
+    return $("//span[contains(text(), '75mm')]");
+  }
+  get btn_Next()
+  {
+    return $("//span[contains(text(), 'Next')]")
+  }
+
+  //Pressure Info 
+  get pressureInfoNumber()
+  {
+    return $("(//*[@type = 'number'])[1]")
+  }
+
+  get outputpressurNumber1()
+  {
+    return $("(//*[@type = 'number'])[2]")
+  }
+  get outputpressurNumber2()
+  {
+    return $("(//*[@type = 'number'])[4]")
+  }
+
+  //Location Page
+
+  get lat()
+  {
+    return $("(//*[@type = 'number'])[6]")
+  }
+  get long()
+  {
+    return $("(//*[@type = 'number'])[7]")
+  }
+
+  //Dstroz Page
+  get saveButtonHydrant()
+  {
+    return $("(//span[contains(text(), 'Save')])[2]")
   }
 
 
@@ -59,14 +107,11 @@ class HydrantPage {
   }
 
   async createHydrant() {
-    await browser.pause(5000);
     await this.btnAddHydrant.waitForExist();
     await this.textLabelPage.scrollIntoView();
-    await browser.pause(3000);
     const text = await this.btnAddHydrant.getText();
     console.log("text is:" + text);
     await this.btnAddHydrant.click();
-    await browser.pause(7000);
     
   }
 
@@ -77,43 +122,102 @@ class HydrantPage {
     });
     await this.txtField_hydrantNumber.setValue(hydrantNum);
     await this.dd_brand.click();
-    await browser.pause(3000);
-
-    //await this.dropDown_Brand_List.click();
-
     await this.dropDown_Brand_List.click(); // Select the first element
-    await browser.pause(3000);
     await this.dd_OpenModel.click();
-    //const matSelect = $("(//*[@role='combobox'])[3]");
-
-    // Click on the dropdown to open the options
-    //await matSelect.click();
-
-    // Wait for the options to be visible (adjust the timeout as needed)
     await this.dd_OpenModel.waitForDisplayed({ timeout: 6000 });
 
-    // Click on a specific option based on its text
-    
-    // const optionSelector = "//span[contains(text(), 'UNO 1')]";
-    // await optionSelector.click();
     await this.dd_ModelList.click();
-    await browser.pause(5000);
-    //await this.dd_ModelList.click();
     await this.rb_belowGround.waitForDisplayed({timeout: 5000})
     await this.rb_belowGround.click();
     await this.textField_stroz1.scrollIntoView({
         block: 'end'
 
     })
-    await browser.debug();
+   
     await this.textField_stroz1.waitForDisplayed()
     await this.textField_stroz1.click();
-    await browser.debug();
-
-    // Click on the randomly selected item
-    //await this.dropDown_Brand_List[randomIndex].click();
-    await browser.pause(20000);
+    await this.dd_stroz1List.waitForClickable()
+    await this.dd_stroz1List.click();
     
+
+  //stroz 2
+  await this.textField_stroz2.scrollIntoView({
+    block: 'start'
+
+})
+
+    await this.textField_stroz2.waitForDisplayed(
+      {
+        timeout: 6000
+      }
+    )
+    await this.textField_stroz2.click();
+    await this.dd_stroz2List.waitForClickable(
+      {
+        timeout: 2000
+      }
+    )
+    await this.dd_stroz2List.click();
+    await this.btn_Next.scrollIntoView(
+      {
+        block: 'start'
+      }
+    )
+    await this.btn_Next.click();
+   
+
+
+    
+  }
+
+  async hydrantFormPressureInfo()
+  {
+    await this.pressureInfoNumber.waitForDisplayed();
+    await this.pressureInfoNumber.setValue("200");
+    await this.outputpressurNumber1.setValue("10")
+    await this.outputpressurNumber2.scrollIntoView();
+    await this.outputpressurNumber2.setValue("20");
+    await this.btn_Next.scrollIntoView(
+      {
+        block: 'start'
+      }
+    )
+    await this.btn_Next.click();
+    
+
+
+  }
+  async hydrantFormDatePage()
+  {
+    await this.btn_Next.scrollIntoView();
+    await this.btn_Next.click();
+  
+    
+  }
+
+  async hydrantFormLocationPage()
+  {
+    await this.lat.scrollIntoView();
+    await this.lat.setValue("50");
+    await this.long.scrollIntoView();
+    await this.long.setValue("10");
+    {
+      await this.btn_Next.scrollIntoView(
+        {
+          block: 'start'
+        }
+      )
+      await this.btn_Next.click();
+      
+    }
+    
+
+  }
+  async hydrantFormDStorzPage()
+  {
+    await this.saveButtonHydrant.waitForClickable();
+    await this.saveButtonHydrant.scrollIntoView();
+    await this.saveButtonHydrant.click()
   }
 }
 
