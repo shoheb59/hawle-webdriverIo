@@ -16,6 +16,10 @@ describe('User page navigation',  () =>
     it('user management page navigaiton', async() =>
     {
         await UserPage.navigateToUserPage();
+        
+    })
+    it('User creation', async()=>{
+        await UserPage.userCreation();
     })
 
 })

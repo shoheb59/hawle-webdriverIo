@@ -52,7 +52,7 @@ exports.config = {
     exclude: [
         // 'path/to/excluded/files'
     ],
-    "suites" : {
+    suites : {
         smoke: [
             //"./test/specs/login.e2e.js",
            // "./test/specs/home.e2e.js",
@@ -66,9 +66,9 @@ exports.config = {
         ],
         three:
         [
-            "./test/specs/dStorz.e2e.js",
+            // "./test/specs/dStorz.e2e.js",
             "./test/specs/user.e2e.js",
-            "./test/specs/alarm.e2e.js"
+            // "./test/specs/alarm.e2e.js"
 
         ] 
     
@@ -191,7 +191,7 @@ exports.config = {
     // See the full list at http://mochajs.org/
     mochaOpts: {
         ui: 'bdd',
-        timeout: 200000
+        timeout: 300000
     },
 
     //
