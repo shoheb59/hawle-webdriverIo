@@ -65,7 +65,6 @@ class AlarmDFPage
 
     get rd_active()
     {
-        //return $("(//*[@type= 'radio'])[1]")
         return $("//span[contains(text(), 'Active')]")
         
     }
@@ -74,7 +73,9 @@ class AlarmDFPage
     {
         //return $("(//*[@type= 'date'])[1]")
         //return $("(//*[@type='button'])[5]")
-        return $("(//mat-datetimepicker)[1]")
+        //return $("(//mat-datetimepicker)[1]")
+        //return $("//mat-datetimepicker[@type='date' and @openonfocus='true']")
+        return $("(//mat-datetimepicker-toggle)[1]")
     }
     get dateFormToday()
     {
@@ -83,7 +84,8 @@ class AlarmDFPage
 
     get timeFrom()
     {
-        return $("(//*[@type='time'])[1]")
+        //return $("(//*[@type='time'])[1]")
+        return $("(//mat-datetimepicker-toggle)[2]")
     }
     get time_Hours()
     {
@@ -115,7 +117,7 @@ class AlarmDFPage
         //General info
         await this.btnAddAlarmDefinition.waitForClickable()
         await this.btnAddAlarmDefinition.click();
-        await this.txtName.setValue("alarm Definition"+ DataGenerator);
+        await this.txtName.setValue("alarm Definition"+ DataGenerator.generateRandorString());
         await this.rb_AssignZone.click();
         await this.rb_ZoneName.scrollIntoView({
             block: 'start'
@@ -149,8 +151,8 @@ class AlarmDFPage
     async createAlarmDfDate()
     {
         await this.rd_active.waitForExist();
+        await this.rd_active.waitForClickable();
         await this.rd_active.click();
-        await browser.pause(3000);
         await this.dateFrom.waitForClickable();
         await this.dateFrom.click();
         await this.dateFormToday.waitForClickable();
@@ -158,9 +160,9 @@ class AlarmDFPage
         await this.timeFrom.waitForClickable();
         await this.timeFrom.click();
         await this.time_Hours.waitForClickable();
-        await this.time_Hours.click();
-        await this.time_Minutes.waitForClickable();
-        await this.time_Minutes.click();
+        await this.time_Hours.doubleClick()
+        //await this.time_Minutes.waitForClickable();
+        //await this.time_Minutes.click();
         await this.btn_Save.scrollIntoView(
             {
                 block: 'start'
